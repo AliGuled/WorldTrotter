@@ -11,8 +11,10 @@ import MapKit
 
 class MapViewController: UIViewController,MKMapViewDelegate  {
     
+    //Creating mapview object
     var mapView: MKMapView!
     
+    //loading the map on the scene
     override func loadView() {
         super.loadView()
         mapView = MKMapView()
@@ -20,13 +22,9 @@ class MapViewController: UIViewController,MKMapViewDelegate  {
         addSegmentedControl()
         
     }
-    
-
-  
 
     
     //Adding segmented control that switch the map to three types of mode: Standard, Hybrid, Satellite
-    
     func addSegmentedControl() {
     
         let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
@@ -40,16 +38,13 @@ class MapViewController: UIViewController,MKMapViewDelegate  {
         let margins = view.layoutMarginsGuide
         let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
         let trainlingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-       
-     
-       
-        
-       
+
         topContstraint.isActive = true
         leadingConstraint.isActive = true
         trainlingConstraint.isActive = true
 }
     
+    //Changing the map type
     @objc func mapTypeChanged(_ segControl: UISegmentedControl) {
         
         switch segControl.selectedSegmentIndex {
@@ -63,9 +58,6 @@ class MapViewController: UIViewController,MKMapViewDelegate  {
             break
         }
     }
-    
-
-    
-    
+      
 }
 
